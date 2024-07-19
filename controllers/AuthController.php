@@ -13,9 +13,11 @@ class AuthController
     public function signup($name, $email, $password)
     {
         if ($this->userModel->createUser($name, $email, $password)) {
+            http_response_code(201); // Created
             echo json_encode(['status' => 'success']);
         } else {
-            echo json_encode(['status' => 'error']);
+            http_response_code(500); // Internal Server Error
+            echo json_encode(['status' => 'error', 'message' => 'User creation failed']);
         }
     }
 
@@ -26,9 +28,11 @@ class AuthController
             // Start session and set user data
             session_start();
             $_SESSION['user'] = $user;
+            http_response_code(200); // OK
             echo json_encode(['status' => 'success', 'user' => $user]);
         } else {
-            echo json_encode(['status' => 'error']);
+            http_response_code(401); // Unauthorized
+            echo json_encode(['status' => 'error', 'message' => 'Invalid email or password']);
         }
     }
 }

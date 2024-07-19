@@ -6,37 +6,76 @@ $authController = new AuthController();
 $input = json_decode(file_get_contents("php://input"), true);
 
 if (!isset($input['action'])) {
-    die("Action not specified");
+    http_response_code(400);
+    die(json_encode(['status' => 'error', 'message' => 'Action not specified']));
 }
 
 $action = $input['action'];
 
+$errorMessage = "";
+
 switch ($action) {
     case 'signin':
-        // Ensure email and password keys exist before using them
         if (!isset($input['email']) || !isset($input['password'])) {
-            die("Email or password not specified");
+            http_response_code(400);
+            die(json_encode(['status' => 'error', 'message' => 'Email or password not specified']));
         }
 
-        $email = $input['email'];
-        $password = $input['password'];
-        $authController->signin($email, $password);
+        $email = htmlspecialchars($input['email']);
+        $password = htmlspecialchars($input['password']);
+
+        if (empty($email) || empty($password)) {
+            $errorMessage = "All fields are required.";
+            http_response_code(400);
+        }
+
+        if (empty($errorMessage)) {
+            $authController->signin($email, $password);
+        } else {
+            echo json_encode(['status' => 'error', 'message' => $errorMessage]);
+        }
+
+
 
         break;
 
     case 'signup':
-        // Ensure name, email, and password keys exist before using them
-        if (!isset($input['name']) || !isset($input['email']) || !isset($input['password'])) {
-            die("Name, email, or password not specified");
+        if (!isset($input['name']) || !isset($input['email']) || !isset($input['password']) || !isset($input['confirmPassword'])) {
+            http_response_code(400);
+            die(json_encode(['status' => 'error', 'message' => 'Name, email, password, or confirm password not specified']));
         }
 
-        $name = $input['name'];
-        $email = $input['email'];
-        $password = $input['password'];
-        $authController->signup($name, $email, $password);
+        $name = htmlspecialchars($input['name']);
+        $email = htmlspecialchars($input['email']);
+        $password = htmlspecialchars($input['password']);
+        $confirmPassword = htmlspecialchars($input['confirmPassword']);
+
+
+
+        if (empty($name) || empty($email) || empty($password) || empty($confirmPassword)) {
+            $errorMessage = "All fields are required.";
+            http_response_code(400);
+        }
+
+        if (strlen($password) < 6) {
+            $errorMessage = "Password must be at least 6 characters.";
+            http_response_code(400);
+        }
+
+        if ($password !== $confirmPassword) {
+            $errorMessage = "Passwords do not match.";
+            http_response_code(400);
+        }
+
+        if (empty($errorMessage)) {
+            $authController->signup($name, $email, $password);
+        } else {
+            echo json_encode(['status' => 'error', 'message' => $errorMessage]);
+        }
 
         break;
 
     default:
-        die("Invalid action specified");
+        http_response_code(400);
+        die(json_encode(['status' => 'error', 'message' => 'Invalid action specified']));
 }
