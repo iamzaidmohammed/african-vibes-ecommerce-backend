@@ -10,14 +10,27 @@ class AuthController
         $this->userModel = new User();
     }
 
-    public function signup($name, $email, $password)
+    public function signup($firstName, $lastName, $username, $email, $password)
     {
-        if ($this->userModel->createUser($name, $email, $password)) {
-            http_response_code(201); // Created
-            echo json_encode(['status' => 'success']);
+        $userEmail = $this->userModel->getUserByEmail($email);
+        $user = $this->userModel->getUserByUsername($username);
+
+        if (!$userEmail) {
+            if (!$user) {
+                if ($this->userModel->createUser($firstName, $lastName, $username, $email, $password)) {
+                    http_response_code(201);
+                    echo json_encode(['status' => 'success']);
+                } else {
+                    http_response_code(500);
+                    echo json_encode(['status' => 'error', 'message' => 'Account creation failed']);
+                }
+            } else {
+                http_response_code(500);
+                echo json_encode(['status' => 'error', 'message' => 'Username already exists.']);
+            }
         } else {
-            http_response_code(500); // Internal Server Error
-            echo json_encode(['status' => 'error', 'message' => 'User creation failed']);
+            http_response_code(500);
+            echo json_encode(['status' => 'error', 'message' => 'User with email already exists.']);
         }
     }
 
@@ -27,9 +40,17 @@ class AuthController
         if ($user && password_verify($password, $user['password'])) {
             // Start session and set user data
             session_start();
-            $_SESSION['user'] = $user;
+            $userInfo = [
+                'firstName' => $user['first_name'],
+                'lastName' => $user['last_name'],
+                'username' => $user['username'],
+                'email' => $user['email'],
+                'address' => $user['address'],
+                'phone' => $user['phone_number']
+            ];
+            $_SESSION['user'] = $userInfo;
             http_response_code(200); // OK
-            echo json_encode(['status' => 'success', 'user' => $user]);
+            echo json_encode(['status' => 'success', 'user' => $userInfo]);
         } else {
             http_response_code(401); // Unauthorized
             echo json_encode(['status' => 'error', 'message' => 'Invalid email or password']);
