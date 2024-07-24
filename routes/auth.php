@@ -35,30 +35,28 @@ switch ($action) {
             echo json_encode(['status' => 'error', 'message' => $errorMessage]);
         }
 
-
-
         break;
 
     case 'signup':
-        if (!isset($input['name']) || !isset($input['email']) || !isset($input['password']) || !isset($input['confirmPassword'])) {
+        if (!isset($input['firstName']) || !isset($input['lastName']) || !isset($input['username']) || !isset($input['email']) || !isset($input['password']) || !isset($input['confirmPassword'])) {
             http_response_code(400);
-            die(json_encode(['status' => 'error', 'message' => 'Name, email, password, or confirm password not specified']));
+            die(json_encode(['status' => 'error', 'message' => 'All fields are required.']));
         }
 
-        $name = htmlspecialchars($input['name']);
+        $firstName = htmlspecialchars($input['firstName']);
+        $lastName = htmlspecialchars($input['lastName']);
+        $username = htmlspecialchars($input['username']);
         $email = htmlspecialchars($input['email']);
         $password = htmlspecialchars($input['password']);
         $confirmPassword = htmlspecialchars($input['confirmPassword']);
 
-
-
-        if (empty($name) || empty($email) || empty($password) || empty($confirmPassword)) {
-            $errorMessage = "All fields are required.";
+        if (strlen($password) < 6) {
+            $errorMessage = "Password must be at least 6 characters long.";
             http_response_code(400);
         }
 
-        if (strlen($password) < 6) {
-            $errorMessage = "Password must be at least 6 characters.";
+        if (empty($firstName) || empty($lastName) || empty($username) || empty($email) || empty($password) || empty($confirmPassword)) {
+            $errorMessage = "All fields are required.";
             http_response_code(400);
         }
 
@@ -68,7 +66,7 @@ switch ($action) {
         }
 
         if (empty($errorMessage)) {
-            $authController->signup($name, $email, $password);
+            $authController->signup($firstName, $lastName, $username, $email, $password);
         } else {
             echo json_encode(['status' => 'error', 'message' => $errorMessage]);
         }
