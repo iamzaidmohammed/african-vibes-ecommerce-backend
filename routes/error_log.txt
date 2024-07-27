@@ -7,3 +7,7 @@
 2024-07-24 14:09:22 - SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'jm23' for key 'username'
 2024-07-24 14:09:47 - SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'jm23' for key 'username'
 2024-07-24 14:10:54 - SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'zmz' for key 'username'
+2024-07-25 18:09:02 - SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':id' at line 1
+2024-07-25 18:09:09 - SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':id' at line 1
+2024-07-25 18:10:09 - SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':id' at line 1
+2024-07-25 18:11:52 - SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':id' at line 1
