@@ -1,5 +1,9 @@
 <?php
-require_once '../controllers/ProductController.php';
+
+use ZmDesign\AfricanVibesEcommerceBackend\Controllers\ProductController;
+
+require __DIR__ . '/../vendor/autoload.php';
+
 
 $productController = new ProductController();
 

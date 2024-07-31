@@ -1,8 +1,10 @@
 <?php
 
-require_once '../models/Category.php';
+namespace ZmDesign\AfricanVibesEcommerceBackend\Controllers;
 
-class CategoriesController
+use ZmDesign\AfricanVibesEcommerceBackend\Models\Category;
+
+class CategoryController
 {
     private $categoryModel;
 

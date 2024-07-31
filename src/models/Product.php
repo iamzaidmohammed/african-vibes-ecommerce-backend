@@ -1,5 +1,8 @@
 <?php
-require_once '../config/Dbh.php';
+
+namespace ZmDesign\AfricanVibesEcommerceBackend\Models;
+
+use ZmDesign\AfricanVibesEcommerceBackend\Config\Dbh;
 
 class Product extends Dbh
 {

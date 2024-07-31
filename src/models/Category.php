@@ -1,6 +1,8 @@
 <?php
 
-require_once '../config/dbh.php';
+namespace ZmDesign\AfricanVibesEcommerceBackend\Models;
+
+use ZmDesign\AfricanVibesEcommerceBackend\Config\Dbh;
 
 class Category extends Dbh
 {

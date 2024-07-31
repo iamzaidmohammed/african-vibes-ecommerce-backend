@@ -1,5 +1,8 @@
 <?php
-require_once '../models/Product.php';
+
+namespace ZmDesign\AfricanVibesEcommerceBackend\Controllers;
+
+use ZmDesign\AfricanVibesEcommerceBackend\Models\Product;
 
 class ProductController
 {
