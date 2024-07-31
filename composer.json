@@ -1,0 +1,19 @@
+{
+    "name": "zm_design/african-vibes-ecommerce-backend",
+    "description": "An Ecommerce website for african vibes.",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "ZmDesign\\AfricanVibesEcommerceBackend\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Zaid Mohammed Zainudeen",
+            "email": "zainudeenzaidmohammed7@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}

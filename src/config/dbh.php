@@ -1,4 +1,11 @@
 <?php
+
+
+namespace ZmDesign\AfricanVibesEcommerceBackend\Config;
+
+use PDO;
+use PDOException;
+
 class Dbh
 {
     private $host = 'localhost';

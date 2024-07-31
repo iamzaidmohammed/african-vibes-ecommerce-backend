@@ -1,5 +1,8 @@
 <?php
-require_once '../models/User.php';
+
+namespace ZmDesign\AfricanVibesEcommerceBackend\Controllers;
+
+use ZmDesign\AfricanVibesEcommerceBackend\Models\User;
 
 class AuthController
 {

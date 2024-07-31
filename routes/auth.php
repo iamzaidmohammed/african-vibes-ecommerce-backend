@@ -1,5 +1,8 @@
 <?php
-require_once '../controllers/AuthController.php';
+
+use ZmDesign\AfricanVibesEcommerceBackend\Controllers\AuthController;
+
+require __DIR__ . '/../vendor/autoload.php';
 
 $authController = new AuthController();
 
