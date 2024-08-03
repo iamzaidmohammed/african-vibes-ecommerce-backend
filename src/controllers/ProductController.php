@@ -39,6 +39,20 @@ class ProductController
 
     public function getSingleProduct($id)
     {
-        return $this->productModel->getSingleProduct($id);
+        $product = $this->productModel->getSingleProduct($id);
+
+        $result = [];
+        if ($product) {
+            $result[] = [
+                'id' => $product['product_id'],
+                'categoryId' => $product['category_id'],
+                'name' => $product['product_name'],
+                'desc' => $product['description'],
+                'img' => $product['product_image'],
+                'price' => $product['price'],
+                'stock' => $product['stock_quantity'],
+            ];
+        }
+        return $result;
     }
 }
