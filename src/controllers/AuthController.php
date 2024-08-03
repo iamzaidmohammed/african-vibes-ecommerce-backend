@@ -44,6 +44,7 @@ class AuthController
             // Start session and set user data
             session_start();
             $userInfo = [
+                'id' => $user['user_id'],
                 'firstName' => $user['first_name'],
                 'lastName' => $user['last_name'],
                 'username' => $user['username'],
