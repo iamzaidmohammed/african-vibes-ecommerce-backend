@@ -38,6 +38,8 @@ class CartController
                 ];
             };
             return $items;
+        } else {
+            return [];
         }
 
         // return $cart;
@@ -56,5 +58,10 @@ class CartController
             ];
             return $item;
         }
+    }
+
+    public function removeCart($id)
+    {
+        return $this->cartModel->deleteCart($id);
     }
 }

@@ -38,6 +38,13 @@ class Cart extends Dbh
         $params = [':id' => $id];
         return $this->fetch($sql, $params);
     }
+
+    public function deleteCart($id)
+    {
+        $sql = "DELETE FROM cart WHERE cart_id = :id";
+        $params = [':id' => $id];
+        return $this->execute($sql, $params);
+    }
 }
 
     

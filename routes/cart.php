@@ -26,6 +26,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['getCartItems']) === true) {
     $cartItems = $cartController->getAll();
 
-    // var_dump($cartItems);
     echo json_encode($cartItems);
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
+    $input = json_decode(file_get_contents("php://input"), true);
+    $cartId = $input['cart_id'];
+    $cartController->removeCart($cartId);
+
+    echo json_encode(['status' => 'success', 'message' => 'Cart item removed successfully.']);
 }
