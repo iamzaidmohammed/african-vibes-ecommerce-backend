@@ -1,7 +1,7 @@
 <?php
 
 
-namespace ZmDesign\AfricanVibesEcommerceBackend\Config;
+namespace app\Config;
 
 use PDO;
 use PDOException;

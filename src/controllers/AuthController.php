@@ -1,8 +1,8 @@
 <?php
 
-namespace ZmDesign\AfricanVibesEcommerceBackend\Controllers;
+namespace app\Controllers;
 
-use ZmDesign\AfricanVibesEcommerceBackend\Models\User;
+use app\Models\User;
 
 class AuthController
 {

@@ -1,14 +1,11 @@
 <?php
 
-use ZmDesign\AfricanVibesEcommerceBackend\Controllers\CartController;
+use app\Controllers\CartController;
 
-require_once __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../../vendor/autoload.php';
 
 $cartController = new CartController();
 
-// $items = $cartController->getAllCarts();
-
-// echo json_encode($items);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 

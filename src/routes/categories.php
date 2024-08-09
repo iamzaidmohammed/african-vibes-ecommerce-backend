@@ -1,8 +1,8 @@
 <?php
 
-use ZmDesign\AfricanVibesEcommerceBackend\Controllers\CategoryController;
+use app\Controllers\CategoryController;
 
-require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../../vendor/autoload.php';
 
 
 $categoryController = new CategoryController();
