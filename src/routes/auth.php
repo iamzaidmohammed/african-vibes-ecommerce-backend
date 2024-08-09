@@ -1,8 +1,8 @@
 <?php
 
-use ZmDesign\AfricanVibesEcommerceBackend\Controllers\AuthController;
+use app\Controllers\AuthController;
 
-require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../../vendor/autoload.php';
 
 $authController = new AuthController();
 

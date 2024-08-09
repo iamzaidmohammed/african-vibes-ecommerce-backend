@@ -1,8 +1,8 @@
 <?php
 
-namespace ZmDesign\AfricanVibesEcommerceBackend\Controllers;
+namespace app\Controllers;
 
-use ZmDesign\AfricanVibesEcommerceBackend\Models\Category;
+use app\Models\Category;
 
 class CategoryController
 {

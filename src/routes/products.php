@@ -1,8 +1,8 @@
 <?php
 
-use ZmDesign\AfricanVibesEcommerceBackend\Controllers\ProductController;
+use app\Controllers\ProductController;
 
-require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../../vendor/autoload.php';
 
 $idParam = isset($_GET['id']) ? $_GET['id'] : null;
 

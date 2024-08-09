@@ -1,8 +1,8 @@
 <?php
 
-namespace ZmDesign\AfricanVibesEcommerceBackend\Controllers;
+namespace app\Controllers;
 
-use ZmDesign\AfricanVibesEcommerceBackend\Models\Cart;
+use app\Models\Cart;
 
 class CartController
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace ZmDesign\AfricanVibesEcommerceBackend\Controllers;
+namespace app\Controllers;
 
-use ZmDesign\AfricanVibesEcommerceBackend\Models\Product;
+use app\Models\Product;
 
 class ProductController
 {

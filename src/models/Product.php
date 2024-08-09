@@ -1,8 +1,8 @@
 <?php
 
-namespace ZmDesign\AfricanVibesEcommerceBackend\Models;
+namespace app\Models;
 
-use ZmDesign\AfricanVibesEcommerceBackend\Config\Dbh;
+use app\Config\Dbh;
 
 class Product extends Dbh
 {
