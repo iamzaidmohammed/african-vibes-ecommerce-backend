@@ -18,6 +18,11 @@ class CartController
         return $this->cartModel->createCart($userId, $productId, $quantity);
     }
 
+    public function updateCart($userId, $productId, $quantity)
+    {
+        return $this->cartModel->updataCart($userId, $productId, $quantity);
+    }
+
     public function getAll()
     {
         $cart = $this->cartModel->getAllCarts();
@@ -33,7 +38,7 @@ class CartController
                     'quantity' => $item['quantity'],
                     'productName' => $item['product_name'],
                     'price' => $item['price'],
-                    'total' => $item['price'] * $item['quantity'],
+                    // 'total' => $item['price'] * $item['quantity'],       
                     'image' => $item['product_image'],
                 ];
             };
@@ -41,24 +46,33 @@ class CartController
         } else {
             return [];
         }
-
-        // return $cart;
     }
 
-    public function getOne($id)
+    public function getUserCart($id)
     {
-        $cart = $this->cartModel->getSingleCart($id);
+        $cart = $this->cartModel->getUserCart($id);
 
         if ($cart) {
-            $item = [
-                'id' => $cart['cart_id'],
-                'userId' => $cart['user_id'],
-                'productId' => $cart['product_id'],
-                'quantity' => $cart['quantity'],
-            ];
-            return $item;
+            $items = [];
+
+            foreach ($cart as $item) {
+                $items[] = [
+                    'cartID' => $item['cart_id'],           // Accessing 'cart_id' directly
+                    'userID' => $item['user_id'],           // Accessing 'user_id' directly
+                    'productID' => $item['product_id'],     // Accessing 'product_id' directly
+                    'quantity' => $item['quantity'],        // Accessing 'quantity' directly
+                    'productName' => $item['product_name'], // Accessing 'product_name' directly
+                    'price' => $item['price'],              // Accessing 'price' directly
+                    'total' => $item['price'] * $item['quantity'],
+                    'image' => $item['product_image'],      // Accessing 'product_image' directly
+                ];
+            };
+            return $items;
+        } else {
+            return [];
         }
     }
+
 
     public function removeCart($id)
     {
