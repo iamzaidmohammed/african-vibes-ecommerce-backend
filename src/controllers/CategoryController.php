@@ -27,10 +27,12 @@ class CategoryController
             foreach ($categories as $category) {
                 $results[] = [
                     'id' => $category['category_id'],
-                    'name' => $category['name']
+                    'name' => $category['category_name']
                 ];
             }
             return $results;
+        } else {
+            return [];
         }
     }
 }

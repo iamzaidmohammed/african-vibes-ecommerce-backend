@@ -9,7 +9,7 @@ use PDOException;
 class Dbh
 {
     private $host = 'localhost';
-    private $dbname = 'african_vibes_ecommerce';
+    private $dbname = 'trail_ecommerce';
     private $username = 'root';
     private $password = '';
     private $pdo;
