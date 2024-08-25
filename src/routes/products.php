@@ -4,14 +4,17 @@ use app\Controllers\ProductController;
 
 require __DIR__ . '/../../vendor/autoload.php';
 
-$idParam = isset($_GET['id']) ? $_GET['id'] : null;
+$id = isset($_GET['id']) ? $_GET['id'] : null;
 
 $productController = new ProductController();
 
-if ($idParam === null) {
+// $product = $productController->getSingleProduct(28);
+// echo json_encode($product);
+
+if ($id === null) {
     $products = $productController->getAllProducts();
     echo json_encode($products);
 } else {
-    $product = $productController->getSingleProduct($idParam);
+    $product = $productController->getSingleProduct($id);
     echo json_encode($product);
 }

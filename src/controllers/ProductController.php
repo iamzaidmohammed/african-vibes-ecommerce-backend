@@ -17,6 +17,8 @@ class ProductController
     {
         $products = $this->productModel->getAllProducts();
 
+
+
         if ($products) {
             $results = [];
             foreach ($products as $product) {
@@ -24,15 +26,14 @@ class ProductController
                     'id' => $product['product_id'],
                     'categoryId' => $product['category_id'],
                     'name' => $product['product_name'],
-                    'desc' => $product['description'],
-                    'img' => $product['product_image'],
                     'price' => $product['price'],
                     'stock' => $product['stock_quantity'],
+                    'imgs' => $product['product_images'],
                 ];
             }
-
-            // echo json_encode($results);
             return $results;
+        } else {
+            return [];
         }
     }
 
@@ -45,14 +46,19 @@ class ProductController
         if ($product) {
             $result[] = [
                 'id' => $product['product_id'],
+                'artisanId' => $product['artisan_id'],
                 'categoryId' => $product['category_id'],
                 'name' => $product['product_name'],
-                'desc' => $product['description'],
-                'img' => $product['product_image'],
+                'desc' => $product['product_description'],
+                'code' => $product['product_code'],
                 'price' => $product['price'],
                 'stock' => $product['stock_quantity'],
+                'instructions' => $product['care_instructions'],
+                'imgs' => $product['product_images'],
             ];
+            return $result;
+        } else {
+            return [];
         }
-        return $result;
     }
 }

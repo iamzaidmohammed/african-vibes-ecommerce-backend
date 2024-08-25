@@ -125,3 +125,7 @@
 2024-08-14 15:28:44 - SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'quantity' cannot be null
 2024-08-17 23:35:10 - SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'product_id' cannot be null
 2024-08-17 23:36:23 - SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'product_id' cannot be null
+2024-08-24 15:34:53 - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'description' in 'field list'
+2024-08-24 15:34:54 - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'description' in 'field list'
+2024-08-24 15:35:13 - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'description' in 'field list'
+2024-08-24 15:35:13 - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'description' in 'field list'
