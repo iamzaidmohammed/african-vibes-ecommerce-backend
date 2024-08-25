@@ -49,8 +49,7 @@ class AuthController
                 'lastName' => $user['last_name'],
                 'username' => $user['username'],
                 'email' => $user['email'],
-                'address' => $user['address'],
-                'phone' => $user['phone_number']
+                'phone' => $user['phone']
             ];
             $_SESSION['user'] = $userInfo;
             http_response_code(200); // OK
