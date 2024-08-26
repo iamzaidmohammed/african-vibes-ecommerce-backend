@@ -18,35 +18,34 @@ class CartController
         return $this->cartModel->createCart($userId, $productId, $quantity);
     }
 
-    public function updateCart($userId, $productId, $quantity)
+    public function updateCart($productId, $quantity)
     {
-        return $this->cartModel->updataCart($userId, $productId, $quantity);
+        return $this->cartModel->updateCart($productId, $quantity);
     }
 
-    public function getAll()
-    {
-        $cart = $this->cartModel->getAllCarts();
+    // public function getAll()
+    // {
+    //     $cart = $this->cartModel->getAllCarts();
 
-        if ($cart) {
-            $items = [];
+    //     if ($cart) {
+    //         $items = [];
 
-            foreach ($cart as $item) {
-                $items[] = [
-                    'cartID' => $item['cart_id'],
-                    'userID' => $item['user_id'],
-                    'productID' => $item['product_id'],
-                    'quantity' => $item['quantity'],
-                    'productName' => $item['product_name'],
-                    'price' => $item['price'],
-                    // 'total' => $item['price'] * $item['quantity'],       
-                    'image' => $item['product_image'],
-                ];
-            };
-            return $items;
-        } else {
-            return [];
-        }
-    }
+    //         foreach ($cart as $item) {
+    //             $items[] = [
+    //                 'cartID' => $item['cart_id'],
+    //                 'userID' => $item['user_id'],
+    //                 'productID' => $item['product_id'],
+    //                 'quantity' => $item['quantity'],
+    //                 'productName' => $item['product_name'],
+    //                 'price' => $item['price'],
+    //                 'image' => $item['product_images'],
+    //             ];
+    //         };
+    //         return $items;
+    //     } else {
+    //         return [];
+    //     }
+    // }
 
     public function getUserCart($id)
     {
@@ -57,14 +56,13 @@ class CartController
 
             foreach ($cart as $item) {
                 $items[] = [
-                    'cartID' => $item['cart_id'],           // Accessing 'cart_id' directly
-                    'userID' => $item['user_id'],           // Accessing 'user_id' directly
+                    'cartID' => $item['cart_id'],           // Accessing 
                     'productID' => $item['product_id'],     // Accessing 'product_id' directly
                     'quantity' => $item['quantity'],        // Accessing 'quantity' directly
                     'productName' => $item['product_name'], // Accessing 'product_name' directly
                     'price' => $item['price'],              // Accessing 'price' directly
                     'total' => $item['price'] * $item['quantity'],
-                    'image' => $item['product_image'],      // Accessing 'product_image' directly
+                    'image' => $item['product_images'],      // Accessing 'product_image' directly
                 ];
             };
             return $items;
@@ -74,8 +72,8 @@ class CartController
     }
 
 
-    public function removeCart($id)
+    public function removeCart($user_id, $product_id)
     {
-        return $this->cartModel->deleteCart($id);
+        return $this->cartModel->deleteUserCart($user_id, $product_id);
     }
 }

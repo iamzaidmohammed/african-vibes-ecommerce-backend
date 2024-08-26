@@ -67,6 +67,11 @@ class Dbh
         }
     }
 
+    public function lastInsertId()
+    {
+        return $this->pdo->lastInsertId();
+    }
+
     // Method to log errors to a file
     private function logError($message)
     {

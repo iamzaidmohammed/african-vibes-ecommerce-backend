@@ -25,10 +25,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
     $input = json_decode(file_get_contents("php://input"), true);
 
     $productId = $input['product_id'];
-    $userId = $input['user_id'];
     $quantity = $input['quantity'];
 
-    $cartController->updateCart($userId, $productId, $quantity);
+    $cartController->updateCart($productId, $quantity);
 
     echo json_encode(['status' => 'success', 'message' => 'Cart item updated successfully.']);
 }
@@ -45,8 +44,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
     $input = json_decode(file_get_contents("php://input"), true);
+    $userId = $input['user_id'];
     $productId = $input['product_id'];
-    $cartController->removeCart($productId);
+    $cartController->removeCart($userId, $productId);
 
     echo json_encode(['status' => 'success', 'message' => 'Cart item removed successfully.']);
 }
