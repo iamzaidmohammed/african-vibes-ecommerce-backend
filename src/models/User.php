@@ -20,6 +20,21 @@ class User extends Dbh
         return $this->execute($sql, $params);
     }
 
+    public function updateUserDetails($userId, $firstName, $lastName, $email, $phone)
+    {
+
+        $sql = "UPDATE users SET first_name = :firstName, last_name = :lastName, email = :email, phone = :phone WHERE user_id = :userId";
+        $params = [
+            ':userId' => $userId,
+            ':firstName' => $firstName,
+            ':lastName' => $lastName,
+            ':email' => $email,
+            ':phone' => $phone,
+        ];
+
+        return $this->execute($sql, $params);
+    }
+
     public function getUserByEmail($email)
     {
         $sql = "SELECT * FROM users WHERE email = :email";

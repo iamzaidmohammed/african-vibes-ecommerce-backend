@@ -59,4 +59,15 @@ class AuthController
             echo json_encode(['status' => 'error', 'message' => 'Invalid email or password']);
         }
     }
+
+    public function updateUserDetails($id, $firstName, $lastName, $email, $phone)
+    {
+        if ($this->userModel->updateUserDetails($id, $firstName, $lastName, $email, $phone)) {
+            http_response_code(200); // OK
+            echo json_encode(['status' => 'success']);
+        } else {
+            http_response_code(500); // Internal Server Error
+            echo json_encode(['status' => 'error', 'message' => 'Failed to update user details']);
+        }
+    }
 }
