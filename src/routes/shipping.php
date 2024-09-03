@@ -2,11 +2,13 @@
 
 use app\Controllers\ShippingController;
 use app\Controllers\AuthController;
+use app\Controllers\OrderController;
 
 require __DIR__ . '/../../vendor/autoload.php';
 
 $shippingController = new ShippingController();
 $authController = new AuthController();
+$orderController = new OrderController();
 
 $input = json_decode(file_get_contents("php://input"), true);
 
@@ -67,6 +69,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             http_response_code(201);
             echo json_encode(['status' => 'success']);
         }
+
+        $orderController->updateOrderItems($userId);
     }
 }
 
