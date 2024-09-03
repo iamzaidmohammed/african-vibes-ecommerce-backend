@@ -147,3 +147,24 @@
 2024-08-26 12:56:24 - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cart_items.product_images' in 'on clause'
 2024-08-26 12:56:24 - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'product_id' in 'field list'
 2024-08-26 12:56:24 - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cart_items.product_images' in 'on clause'
+2024-09-01 16:21:53 - SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'total_amount' cannot be null
+2024-09-01 16:21:54 - SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'quantity' cannot be null
+2024-09-01 16:25:36 - SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'total_amount' cannot be null
+2024-09-01 16:25:36 - SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'quantity' cannot be null
+2024-09-01 16:27:35 - SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'total_amount' cannot be null
+2024-09-01 16:27:35 - SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'quantity' cannot be null
+2024-09-01 16:28:51 - SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'total_amount' cannot be null
+2024-09-01 16:28:52 - SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'quantity' cannot be null2024-09-02 17:45:33 - could not find driver
+2024-09-02 17:45:33 - could not find driver
+2024-09-02 17:45:33 - could not find driver
+2024-09-02 17:45:33 - could not find driver
+2024-09-02 17:49:28 - could not find driver
+2024-09-02 17:49:28 - could not find driver
+2024-09-02 17:50:11 - could not find driver
+2024-09-02 17:50:11 - could not find driver
+2024-09-02 17:50:11 - could not find driver
+2024-09-02 17:50:11 - could not find driver
+2024-09-02 17:51:09 - could not find driver
+2024-09-02 17:51:09 - could not find driver
+2024-09-02 17:51:09 - could not find driver
+2024-09-02 17:51:09 - could not find driver

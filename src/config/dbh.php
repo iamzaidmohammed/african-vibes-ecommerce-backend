@@ -8,11 +8,11 @@ use PDOException;
 
 class Dbh
 {
-    private $host = 'localhost';
-    private $dbname = 'trail_ecommerce';
-    private $username = 'root';
-    private $password = '';
-    private $pdo;
+    protected $host = 'localhost';
+    protected $dbname = 'trail_ecommerce';
+    protected $username = 'root';
+    protected $password = '';
+    protected $pdo;
 
     // Constructor to initialize the database connection
     public function __construct()

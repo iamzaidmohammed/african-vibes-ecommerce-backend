@@ -34,6 +34,9 @@ switch ($uri) {
     case '/shipping':
         require $routesPath . '/shipping.php';
         break;
+    case '/orders':
+        require $routesPath . '/orders.php';
+        break;
     default:
         http_response_code(404);
         echo json_encode(['status' => 'error', 'message' => 'Not Found']);
