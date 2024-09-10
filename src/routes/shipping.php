@@ -57,20 +57,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $address[0]['city'] === $city &&
                 $address[0]['postalCode'] === $postalCode
             ) {
-                echo json_encode(['status' => 'success']);
+                http_response_code(200);
+                // echo json_encode(['status' => 'success']);
             } else {
                 $authController->updateUserDetails($userId, $firstName, $lastName, $email, $phone);
                 $shippingController->updateAddress($userId, $detailedAddress, $country, $province, $city, $postalCode);
                 http_response_code(200);
-                echo json_encode(['status' => 'success']);
+                // echo json_encode(['status' => 'success']);
             }
         } else {
             $shippingController->createAddress($userId, $detailedAddress, $country, $province, $city, $postalCode);
             http_response_code(201);
-            echo json_encode(['status' => 'success']);
         }
 
         $orderController->updateOrderItems($userId);
+        echo json_encode(['status' => 'success']);
     }
 }
 

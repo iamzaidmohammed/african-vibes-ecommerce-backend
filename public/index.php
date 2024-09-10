@@ -2,6 +2,11 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->load();
+
+// echo $_ENV['PAYSTACK_SECRET_KEY'];
+
 // Define the base directory
 $baseDir = '/african-vibes-ecommnerce-backend/public';
 
@@ -36,6 +41,9 @@ switch ($uri) {
         break;
     case '/orders':
         require $routesPath . '/orders.php';
+        break;
+    case '/payment':
+        require $routesPath . '/payment.php';
         break;
     default:
         http_response_code(404);
