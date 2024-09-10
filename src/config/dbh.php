@@ -1,26 +1,28 @@
 <?php
 
-
 namespace app\Config;
 
 use PDO;
 use PDOException;
 
+require_once __DIR__ . '/../init.php';
+
 class Dbh
 {
-    protected $host = 'localhost';
-    protected $dbname = 'trail_ecommerce';
-    protected $username = 'root';
-    protected $password = '';
+    // protected $host = $_ENV['DB_HOST'];
+    // protected $dbname = $_ENV['DB_NAME'];
+    // protected $username = $_ENV['DB_USER'];
+    // protected $password = $_ENV['DB_PASSWORD'];
     protected $pdo;
 
     // Constructor to initialize the database connection
     public function __construct()
     {
-        $dsn = "mysql:host={$this->host};dbname={$this->dbname};charset=utf8mb4";
+        // echo $this->host;
+        $dsn = "mysql:host={$_ENV['DB_HOST']};dbname={$_ENV['DB_NAME']};charset=utf8mb4";
 
         try {
-            $this->pdo = new PDO($dsn, $this->username, $this->password);
+            $this->pdo = new PDO($dsn, $_ENV['DB_USER'], $_ENV['DB_PASSWORD']);
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Set error mode to exception
         } catch (PDOException $e) {
             $this->logError($e->getMessage());

@@ -168,3 +168,11 @@
 2024-09-02 17:51:09 - could not find driver
 2024-09-02 17:51:09 - could not find driver
 2024-09-02 17:51:09 - could not find driver
+2024-09-09 08:03:29 - SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'reference' cannot be null
+2024-09-09 08:12:50 - SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'reciept_number' cannot be null
+2024-09-09 08:12:50 - SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'reciept_number' cannot be null
+2024-09-09 08:24:19 - SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'reciept_number' cannot be null
+2024-09-09 08:24:19 - SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'reciept_number' cannot be null
+2024-09-09 08:30:42 - SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+2024-09-09 08:32:18 - SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+2024-09-09 08:32:18 - SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens

@@ -89,4 +89,15 @@ class Cart extends Dbh
         $params = [':productId' => $productId, ':userId' => $userId];
         return $this->execute($sql, $params);
     }
+
+    public function clearCart($cartId)
+    {
+        $deleteCart = "DELETE FROM cart WHERE cart_id = :cartId";
+        $deletedCart = $this->execute($deleteCart, [':cartId' => $cartId]);
+
+        $deleteCartItems = "DELETE FROM cart_items WHERE cart_id = :cartId";
+        $deletedCartItems = $this->execute($deleteCartItems, [':cartId' => $cartId]);
+
+        return $deletedCart && $deletedCartItems;
+    }
 }

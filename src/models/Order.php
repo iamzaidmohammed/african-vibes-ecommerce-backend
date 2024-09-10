@@ -58,10 +58,20 @@ class Order extends Dbh
 
             $totalAmount = 0;
 
+            // Fetch all current order items
+            $orderItemsSql = 'SELECT * FROM order_items WHERE order_id = :orderId';
+            $orderItemsParams = [':orderId' => $orderId];
+            $orderItems = $this->fetchAll($orderItemsSql, $orderItemsParams);
+
+            // Create an array to track product IDs in the cart
+            $cartProductIds = [];
+
+            // Loop through the cart to update or insert items
             foreach ($cart as $item) {
                 $productId = $item['productID'];
                 $quantity = $item['quantity'];
                 $totalPrice = $item['total'];
+                $cartProductIds[] = $productId; // Track this product ID from the cart
 
                 // Check if the item already exists in the order_items table
                 $checkItemSql = 'SELECT * FROM order_items WHERE order_id = :orderId AND product_id = :productId';
@@ -97,6 +107,19 @@ class Order extends Dbh
                 $totalAmount += $totalPrice;
             }
 
+            // Remove items that are in the order but no longer in the cart
+            foreach ($orderItems as $orderItem) {
+                if (!in_array($orderItem['product_id'], $cartProductIds)) {
+                    // If the product ID is not in the cart, remove it from order_items
+                    $deleteItemSql = 'DELETE FROM order_items WHERE order_id = :orderId AND product_id = :productId';
+                    $deleteItemParams = [
+                        ':orderId' => $orderId,
+                        ':productId' => $orderItem['product_id']
+                    ];
+                    $this->execute($deleteItemSql, $deleteItemParams);
+                }
+            }
+
             // Update the total amount in the orders table
             $updateOrderSql = 'UPDATE orders SET total_amount = :totalAmount WHERE order_id = :orderId';
             $updateOrderParams = [
@@ -108,6 +131,7 @@ class Order extends Dbh
 
         return true;
     }
+
 
     public function getOrderDetails($userId)
     {
@@ -148,5 +172,15 @@ class Order extends Dbh
                 'orderItems' => $orderItems
             ];
         }
+    }
+
+    public function updateOrderStatus($orderId)
+    {
+        $sql = 'UPDATE orders SET status = :status WHERE order_id = :orderId';
+        $params = [
+            ':status' => 'completed',
+            ':orderId' => $orderId
+        ];
+        $this->execute($sql, $params);
     }
 }

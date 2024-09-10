@@ -63,4 +63,9 @@ class OrderController
     {
         return $this->orderModel->updateOrderItems($userId);
     }
+
+    public function updateOrderStatus($orderId)
+    {
+        return $this->orderModel->updateOrderStatus($orderId);
+    }
 }

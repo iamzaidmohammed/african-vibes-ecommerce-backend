@@ -76,4 +76,9 @@ class CartController
     {
         return $this->cartModel->deleteUserCart($user_id, $product_id);
     }
+
+    public function emptyCart($orderId)
+    {
+        return $this->cartModel->clearCart($orderId);
+    }
 }
