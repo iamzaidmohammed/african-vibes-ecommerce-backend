@@ -37,7 +37,6 @@ class Product extends Dbh
         return $this->fetchAll($sql);
     }
 
-
     public function getSingleProduct($id)
     {
         $sql = "SELECT 
