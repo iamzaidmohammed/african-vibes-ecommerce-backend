@@ -45,6 +45,9 @@ switch ($uri) {
     case '/payment':
         require $routesPath . '/payment.php';
         break;
+    case '/likes':
+        require $routesPath . '/likes.php';
+        break;
     default:
         http_response_code(404);
         echo json_encode(['status' => 'error', 'message' => 'Not Found']);

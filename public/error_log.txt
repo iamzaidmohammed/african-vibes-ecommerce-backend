@@ -176,3 +176,6 @@
 2024-09-09 08:30:42 - SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
 2024-09-09 08:32:18 - SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
 2024-09-09 08:32:18 - SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+2024-09-11 00:07:24 - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'trail_ecommerce.likes' doesn't exist
+2024-09-11 00:09:55 - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'trail_ecommerce.likes' doesn't exist
+2024-09-11 00:09:59 - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'trail_ecommerce.likes' doesn't exist
